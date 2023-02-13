@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:notify_me_sa/screens/drawer_menu.dart';
 import 'package:notify_me_sa/screens/eskom.dart';
 import 'package:notify_me_sa/screens/news.dart';
 import 'package:notify_me_sa/screens/weather.dart';
@@ -40,7 +41,7 @@ class _HomeState extends State<Home> {
         currentIndex: _currentPageIndex,
       ),
       body: pages[_currentPageIndex],
-      // drawer: Drawer(child: News(),),
+      // drawer: const Drawer(child:  DrawerMenu(),),
     );
   }
 }
