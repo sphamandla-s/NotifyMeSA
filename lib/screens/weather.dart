@@ -73,7 +73,7 @@ class Weather extends StatelessWidget {
       children: [
         // background
         WeatherBg(
-          weatherType: WeatherType.thunder,
+          weatherType: WeatherType.sunnyNight,
           width: MediaQuery.of(context).size.width,
           height: MediaQuery.of(context).size.height,
         ),
