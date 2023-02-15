@@ -7,9 +7,8 @@ class Weather extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
-    Widget qualityIndicator(IconData iconData, String label, String quality){
-      return  Row(
+    Widget qualityIndicator(IconData iconData, String label, String quality) {
+      return Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Row(
@@ -42,14 +41,10 @@ class Weather extends StatelessWidget {
       );
     }
 
-    Widget warningsIndicators(IconData iconData, String label, String warning){
+    Widget warningsIndicators(String assetImage, String label, String warning) {
       return Column(
         children: [
-          Icon(
-            iconData,
-            color: Colors.white,
-            size: 40,
-          ),
+          Image(image: AssetImage(assetImage)),
           Text(
             label,
             style: GoogleFonts.lato(
@@ -67,7 +62,6 @@ class Weather extends StatelessWidget {
         ],
       );
     }
-
 
     return Stack(
       children: [
@@ -154,24 +148,33 @@ class Weather extends StatelessWidget {
                       color: Colors.white),
                 ),
                 Container(
-                  padding: const EdgeInsets.symmetric(vertical: 30.0,),
+                  padding: const EdgeInsets.symmetric(
+                    vertical: 30.0,
+                  ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      warningsIndicators(Icons.water_drop, 'Rain', '83 %'),
-                      warningsIndicators(Icons.water_drop_outlined , 'Humidity', '67 %'),
-                      warningsIndicators(Icons.air, 'Wind', '21 Km/h')
+                      warningsIndicators(
+                          'images/icons8-rainfall-48.png', 'Rain', '83 %'),
+                      warningsIndicators('images/icons8-hygrometer-48.png',
+                          'Humidity', '67 %'),
+                      warningsIndicators(
+                          'images/icons8-wind-64.png', 'Wind', '21 Km/h')
                     ],
                   ),
                 ),
                 Container(
-                  padding: const EdgeInsets.symmetric(vertical: 30.0,),
+                  padding: const EdgeInsets.symmetric(
+                    vertical: 30.0,
+                  ),
                   child: Column(
                     children: [
                       qualityIndicator(Icons.speed, 'AQI', 'Good(20)'),
                       qualityIndicator(Icons.air_rounded, 'Air Quality', 'Low'),
-                      qualityIndicator(Icons.drive_eta, 'Driving Difficulty', 'Hard'),
-                      qualityIndicator(Icons.directions_walk, 'Running', 'Poor'),
+                      qualityIndicator(
+                          Icons.drive_eta, 'Driving Difficulty', 'Hard'),
+                      qualityIndicator(
+                          Icons.directions_walk, 'Running', 'Poor'),
                     ],
                   ),
                 )
