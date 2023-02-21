@@ -30,18 +30,25 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: BottomNavigationBar(
-        items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.lightbulb), label: 'Eskom'),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.sunny_snowing), label: 'Weather'),
-          BottomNavigationBarItem(icon: Icon(Icons.newspaper), label: 'News'),
-        ],
-        onTap: _selected,
-        currentIndex: _currentPageIndex,
+      bottomNavigationBar: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: BottomNavigationBar(
+          items: const [
+            BottomNavigationBarItem(icon: Icon(Icons.lightbulb), label: 'Eskom'),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.sunny_snowing), label: 'Weather'),
+            BottomNavigationBarItem(icon: Icon(Icons.newspaper), label: 'News'),
+          ],
+          onTap: _selected,
+          currentIndex: _currentPageIndex,
+          selectedItemColor: Theme.of(context).primaryColor,
+          backgroundColor: Theme.of(context).cardColor,
+
+
+        ),
       ),
       body: pages[_currentPageIndex],
-      // drawer: const Drawer(child:  DrawerMenu(),),
+      drawer: const Drawer(child:  DrawerMenu(),),
     );
   }
 }

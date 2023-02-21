@@ -26,16 +26,17 @@ class _NewsState extends State<News> {
       const NewsCard(),
     ];
 
-    Widget tabs(String label) {
-      return Container(
-        margin: const EdgeInsets.only(left: 10.0),
-          height: 10.0,
-          child: TextButton(
-              onPressed: () {},
-              child: Text(
-                label,
-                style: const TextStyle(fontSize: 20.0,),
-              )));
+    Widget tabs(String label, VoidCallback onTap) {
+      return GestureDetector(
+        onTap: onTap,
+        child: Container(
+          margin: const EdgeInsets.only(left: 10.0),
+            height: 10.0,
+            child: Text(
+                  label,
+                  style: const TextStyle(fontSize: 20.0,),
+                )),
+      );
     }
 
     return SafeArea(
@@ -46,29 +47,9 @@ class _NewsState extends State<News> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const CircleAvatar(
-                radius: 25.0,
-              ),
-              Expanded(
-                child: Container(
-                  margin: const EdgeInsets.only(left: 15.0),
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                      color: Colors.grey.shade100),
-                  child: TextField(
-                    controller: _searchController,
-                    decoration: InputDecoration(
-                        border: InputBorder.none,
-                        suffix: IconButton(
-                          onPressed: () {},
-                          icon: const Icon(Icons.mic_none_outlined),
-                          color: Colors.blueAccent,
-                        ),
-                        prefixIcon: const Icon(Icons.search),
-                        hintText: 'Search for News'),
-                  ),
-                ),
-              ),
+              IconButton(onPressed: (){}, icon: const Icon(Icons.menu)),
+              const Text('News Today', style: TextStyle(fontSize: 20.0,),),
+              IconButton(onPressed: (){}, icon: const Icon(Icons.search))
             ],
           ),
           SizedBox(
@@ -77,11 +58,11 @@ class _NewsState extends State<News> {
             child: ListView(
               scrollDirection: Axis.horizontal,
               children: [
-                tabs('All'),
-                tabs('Technology'),
-                tabs('Science'),
-                tabs('Finance'),
-                tabs('Sports')
+                tabs('All', (){} ),
+                tabs('Technology', (){} ),
+                tabs('Science', (){} ),
+                tabs('Finance', (){} ),
+                tabs('Sports', (){} )
               ],
             ),
           ),

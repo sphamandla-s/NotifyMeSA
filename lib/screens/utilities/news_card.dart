@@ -30,7 +30,7 @@ class _NewsCardState extends State<NewsCard> {
             ),
             const Text(
               'A South African Scientist discovered a new planet and named it after himself.',
-              style: TextStyle(fontSize: 25.0),
+              style: TextStyle(fontSize: 20.0),
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,

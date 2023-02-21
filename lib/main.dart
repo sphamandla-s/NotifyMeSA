@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:notify_me_sa/home.dart';
 import 'package:flutter/services.dart';
 
+import 'my_themes.dart';
+
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations(
@@ -14,8 +16,11 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  const MaterialApp(
-      home: Home(),
+    return  MaterialApp(
+      themeMode: ThemeMode.system,
+      theme: MyThemes.lightTheme,
+      darkTheme: MyThemes.darkTheme,
+      home: const Home(),
     );
   }
 }
